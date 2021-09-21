@@ -14,8 +14,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="container h-full py-8">
-        <CreateTodoComponent></CreateTodoComponent>
-        <TodoListComponent></TodoListComponent>
+        <CreateTodoComponent />
+        <TodoListComponent />
       </main>
     </div>
   );

@@ -10,10 +10,10 @@ interface State {
   dueDate: string;
 }
 
-const DEFAULT_DUEDATE = new Date().toISOString();
+const DEFAULT_DUEDATE = new Date();
 
 const initialState: State = {
-  dueDate: DEFAULT_DUEDATE,
+  dueDate: DEFAULT_DUEDATE.toISOString(),
   name: "",
 };
 const CreateTodoComponent: React.FC = () => {
@@ -44,24 +44,30 @@ const CreateTodoComponent: React.FC = () => {
     });
   };
   return (
-    <form action="" onSubmit={submit} className="grid grid-auto-rows gap-2.5">
-      <label htmlFor="todo-name">
-        Todo
-        <input
-          id="todo-name"
-          type="text"
-          required={true}
-          placeholder="name"
-          className="w-full p-2"
-          onChange={nameChange}
-        ></input>
-      </label>
-      <DayPickerInput
-        value={DEFAULT_DUEDATE}
-        onDayChange={dayChange}
-      ></DayPickerInput>
-      <button type="submit">add</button>
-    </form>
+    <div className="shadow-xl p-4 rounded">
+      <form action="" onSubmit={submit} className="flex flex-col gap-2.5">
+        <label htmlFor="todo-name">
+          Todo
+          <input
+            id="todo-name"
+            type="text"
+            required={true}
+            placeholder="name"
+            className="w-full p-2 border-b"
+            onChange={nameChange}
+          ></input>
+        </label>
+        <div className="bg-grey-300">
+          <DayPickerInput value={DEFAULT_DUEDATE} onDayChange={dayChange} />
+        </div>
+        <button
+          type="submit"
+          className="place-self-center px-4 py-2 rounded-lg bg-blue-500 text-white shadow-lg hove:shadow-none"
+        >
+          Add
+        </button>
+      </form>
+    </div>
   );
 };
 

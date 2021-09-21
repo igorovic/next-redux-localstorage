@@ -31,12 +31,26 @@ export const todosSlice = createSlice({
       state,
       action: PayloadAction<Exclude<Todo["id"], undefined>>
     ) => {
-      state.todos.splice(action.payload, 1);
+      state.todos.forEach((T, idx) => {
+        if (T.id === action.payload) {
+          state.todos.splice(idx, 1);
+        }
+      });
+    },
+    toggleDone: (
+      state,
+      action: PayloadAction<Exclude<Todo["id"], undefined>>
+    ) => {
+      state.todos.forEach((T, idx) => {
+        if (T.id === action.payload) {
+          state.todos[idx].done = !state.todos[idx].done;
+        }
+      });
     },
   },
 });
 
-export const { createTodo, deleteTodo } = todosSlice.actions;
+export const { createTodo, deleteTodo, toggleDone } = todosSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectTodos = (state: RootState) => state.todos.todos;

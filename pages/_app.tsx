@@ -1,9 +1,9 @@
 import "tailwindcss/tailwind.css";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
-import { saveState } from "../app/browser-storage";
+import { saveState } from "app/browser-storage";
 import { debounce } from "debounce";
-import { store } from "../app/store";
+import { store } from "app/store";
 
 store.subscribe(
   debounce(() => {

@@ -4,5 +4,5 @@
 
 ## Links
 
-- [Open in Stackblitz](https://stackblitz.com/edit/github-5pb6xu)
-- [Preview App in Stackblitz](https://github-5pb6xu.stackblitz.io)
+- [Edit in Stackblitz](https://stackblitz.com/edit/github-sp72vl?file=README.md)
+- [Preview App in Stackblitz](https://github-sp72vl.stackblitz.io)
